@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create About</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#f4f4f4;
+    padding:40px;
+}
+
+h2{
+    text-align:center;
+}
+
+form{
+    width:400px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:6px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#222;
+    color:white;
+    border:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Add Information</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+<input type="text" name="name" placeholder="Name">
+
+<input type="text" name="Address" placeholder="Address">
+
+<input type="number" name="Age" placeholder="Age">
+
+<input type="date" name="date_of_birth">
+
+<input type="text" name="Education" placeholder="Education">
+
+<input type="text" name="department" placeholder="Department">
+
+<input type="file" name="image">
+
+<button type="submit">Save</button>
+
+</form>
+
+</body>
+</html>

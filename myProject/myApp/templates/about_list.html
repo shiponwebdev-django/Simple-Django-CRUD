@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About List</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#f4f4f4;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+}
+
+.add-btn{
+    background:green;
+    color:white;
+    padding:10px 20px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.table-box{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+table{
+    width:100%;
+    background:white;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    background:#222;
+    color:white;
+}
+
+.edit{
+    background:orange;
+    color:white;
+    padding:6px 10px;
+    text-decoration:none;
+    border-radius:4px;
+}
+
+.delete{
+    background:red;
+    color:white;
+    padding:6px 10px;
+    text-decoration:none;
+    border-radius:4px;
+}
+
+img{
+    border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>About List</h1>
+
+<div class="table-box">
+<a href="{% url 'about_create' %}" class="add-btn">Add New</a>
+</div>
+
+<table>
+
+<tr>
+<th>Image</th>
+<th>Name</th>
+<th>Address</th>
+<th>Age</th>
+<th>DOB</th>
+<th>Education</th>
+<th>Department</th>
+<th>Action</th>
+</tr>
+
+{% for i in data %}
+<tr>
+
+<td>
+<img src="{{ i.image.url }}" width="60">
+</td>
+
+<td>{{ i.name }}</td>
+<td>{{ i.Address }}</td>
+<td>{{ i.Age }}</td>
+<td>{{ i.date_of_birth }}</td>
+<td>{{ i.Education }}</td>
+<td>{{ i.department }}</td>
+
+<td>
+
+<a href="{% url 'about_update' i.id %}" class="edit">Edit</a>
+
+<a href="{% url 'about_delete' i.id %}" class="delete">Delete</a>
+
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
